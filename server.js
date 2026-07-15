@@ -4,9 +4,11 @@ import { fileURLToPath } from "url";
 import path from "path";
 import nodemailer from "nodemailer";
 import session from "express-session";
+import dns from "node:dns";
 
 dotenv.config();
 
+dns.setDefaultResultOrder("ipv4first");
 
 const app=express();
 app.set("trust proxy",1);
