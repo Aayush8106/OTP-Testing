@@ -62,19 +62,19 @@ app.get("/",(req,res)=>{
 app.post("/send-otp", async (req,res)=>{
 
 
-    //mail comming from client to srver
-   console.log(req.body.email);
+   
 
    //generating a 6 digit otp for verification
     const otp=Math.floor(100000+Math.random()*900000);
-    console.log(otp)
+    
 
     //before sending the otp just save it in user's browser session
      req.session.otp=String(otp);//storing otp in strig cuz it is comming in string from user
      req.session.email = req.body.email;
 
-
-
+     //mail comming from client to srver
+   console.log(req.session.email);
+   console.log(req.session.otp);
     try{
     //sending the otp to the client's mail
     await transporter.sendMail({
