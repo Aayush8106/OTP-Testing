@@ -37,6 +37,8 @@ const PORT=process.env.PORT;
     }
 });
 
+const __dirname=path.dirname(fileURLToPath(import.meta.url));
+
 app.use(express.static(path.join(__dirname, "frontend")));
 app.use(express.json());
 app.use(session({
@@ -52,7 +54,6 @@ app.use(session({
 
 }));
 
-const __dirname=path.dirname(fileURLToPath(import.meta.url));
 
 app.get("/",(req,res)=>{
    res.sendFile(path.join(__dirname,"frontend","index.html"));
