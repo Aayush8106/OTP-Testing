@@ -15,19 +15,18 @@ app.set("trust proxy",1);
 const PORT=process.env.PORT;
 
 //creating a transporter to send mail otp
- const transporter=nodemailer.createTransport({
+ const transporter = nodemailer.createTransport({
+    host: "smtp.gmail.com",
+    port: 465,
+    secure: true,
 
-    service:"gmail",
-    auth:{
-      user:process.env.EMAIL_USER,
-      pass:process.env.EMAIL_APP_PASSWORD
+    auth: {
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_APP_PASSWORD
     },
 
-    connectionTimeout: 10000,
-    greetingTimeout: 10000,
-    socketTimeout: 15000
-
- });
+    family: 4
+});
 
  //verifying transporter
  transporter.verify((error, success) => {
