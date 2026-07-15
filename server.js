@@ -37,7 +37,7 @@ const PORT=process.env.PORT;
     }
 });
 
-app.use(express.static("frontend"));
+app.use(express.static(path.join(__dirname, "frontend")));
 app.use(express.json());
 app.use(session({
   secret:process.env.SESSION_KEY,
