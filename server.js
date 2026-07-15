@@ -23,6 +23,15 @@ const PORT=process.env.PORT;
 
  });
 
+ //verifying transporter
+ transporter.verify((error, success) => {
+    if (error) {
+        console.log("Transporter error:", error);
+    } else {
+        console.log("Gmail transporter is ready.");
+    }
+});
+
 app.use(express.static("frontend"));
 app.use(express.json());
 app.use(session({
