@@ -19,7 +19,11 @@ const PORT=process.env.PORT;
     auth:{
       user:process.env.EMAIL_USER,
       pass:process.env.EMAIL_APP_PASSWORD
-    }
+    },
+
+    connectionTimeout: 10000,
+    greetingTimeout: 10000,
+    socketTimeout: 15000
 
  });
 
@@ -67,6 +71,7 @@ app.post("/send-otp", async (req,res)=>{
      req.session.otp=String(otp);//storing otp in strig cuz it is comming in string from user
      req.session.email = req.body.email;
 
+     console.log("About to send email...");
 
     try{
     //sending the otp to the client's mail
