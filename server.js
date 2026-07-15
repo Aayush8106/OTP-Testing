@@ -73,7 +73,7 @@ app.post("/send-otp", async (req,res)=>{
      req.session.otp=String(otp);//storing otp in strig cuz it is comming in string from user
      req.session.email = req.body.email;
 
-     console.log("About to send email...");
+
 
     try{
     //sending the otp to the client's mail
@@ -96,7 +96,7 @@ app.post("/send-otp", async (req,res)=>{
         return res.status(500).send("Failed to save session.");
     }
 
-    console.log("Session saved successfully.");
+    
     res.status(200).send("OTP sent successfully.");
 });
 
